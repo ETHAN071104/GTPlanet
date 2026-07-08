@@ -41,7 +41,7 @@ git clone https://github.com/ETHAN071104/GTPlanet.git
 ### 2. Navigate to the project folder
 
 ```bash
-cd <your-project-folder>
+cd GTPlanet
 ```
 
 ### 3. Install dependencies
