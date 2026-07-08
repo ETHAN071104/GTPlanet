@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT Planet Auto Parts Sdn. Bhd. | Japanese Used Auto Parts Since 2006</title>
+    <meta name="description" content="GT Planet Auto Parts supplies quality used automotive spare parts and components, mainly imported from Japan. Based in Sungai Petani, Kedah with nationwide delivery across Malaysia.">
+    <meta name="keywords" content="used auto parts, Japanese car parts, Malaysia, Kedah, Sungai Petani, engine, gearbox, Toyota, Honda, Nissan, spare parts">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#111111',
+                            grey: '#1a1a1a',
+                            metal: '#71717A',
+                            metalLight: '#A1A1AA',
+                            red: '#DC2626',
+                            redDark: '#991B1B',
+                            redDarker: '#7F1D1D',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body { font-feature-settings: "cv11", "ss01"; }
+        .hero-overlay { background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.6) 100%); }
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .service-card:hover { border-color: #DC2626; }
+        .service-card:hover .service-icon { color: #DC2626; }
+        .brand-card:hover { border-color: #DC2626; background: #FEF2F2; }
+        .part-tag:hover { background: #DC2626; color: #fff; border-color: #DC2626; }
+        .step-card:hover .step-num { background: #DC2626; color: #fff; }
+        .whatsapp-float { animation: pulse-green 2s infinite; }
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+        }
+        .nav-scrolled { background: rgba(10,10,10,0.98) !important; backdrop-filter: blur(12px); box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+        .red-line { width: 60px; height: 4px; background: #DC2626; }
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
+        .mobile-menu.open { transform: translateX(0); }
+        .lightbox { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .lightbox.active { opacity: 1; pointer-events: all; }
+    </style>
+</head>
+<body class="font-sans bg-white text-zinc-900 antialiased">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-brand-red rounded flex items-center justify-center">
+                    <span class="text-white font-bold text-sm tracking-tight">GT</span>
+                </div>
+                <div class="leading-tight">
+                    <span class="text-white font-bold text-sm tracking-wide block">GT PLANET</span>
+                    <span class="text-brand-metalLight text-[10px] tracking-widest uppercase font-medium">Auto Parts</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#home" class="text-white/80 hover:text-white text-sm font-medium transition-colors">Home</a>
+                <a href="#about" class="text-white/80 hover:text-white text-sm font-medium transition-colors">About</a>
+                <a href="#services" class="text-white/80 hover:text-white text-sm font-medium transition-colors">Services</a>
+                <a href="#parts" class="text-white/80 hover:text-white text-sm font-medium transition-colors">Parts</a>
+                <a href="#gallery" class="text-white/80 hover:text-white text-sm font-medium transition-colors">Gallery</a>
+                <a href="#contact" class="text-white/80 hover:text-white text-sm font-medium transition-colors">Contact</a>
+            </div>
+
+            <!-- WhatsApp CTA + Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/60194432950?text=Hi%20GT%20Planet%2C%20I%20would%20like%20to%20enquire%20about%20auto%20parts." target="_blank" rel="noopener"
+                   class="hidden md:flex items-center gap-2 bg-brand-red hover:bg-brand-redDark text-white text-sm font-semibold px-5 py-2.5 rounded transition-colors">
+                    <span class="iconify" data-icon="mdi:whatsapp" data-width="18"></span>
+                    WhatsApp Us
+                </a>
+                <button id="mobileToggle" class="lg:hidden text-white p-2" aria-label="Open menu">
+                    <span class="iconify" data-icon="mdi:menu" data-width="28"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-80 max-w-full bg-brand-dark z-[60] flex flex-col">
+        <div class="flex items-center justify-between px-6 h-20 border-b border-white/10">
+            <span class="text-white font-bold text-sm">MENU</span>
+            <button id="mobileClose" class="text-white p-2" aria-label="Close menu">
+                <span class="iconify" data-icon="mdi:close" data-width="28"></span>
+            </button>
+        </div>
+        <div class="flex-1 flex flex-col px-6 py-8 gap-1">
+            <a href="#home" class="mobile-link text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/5 transition-colors">Home</a>
+            <a href="#about" class="mobile-link text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/5 transition-colors">About</a>
+            <a href="#services" class="mobile-link text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/5 transition-colors">Services</a>
+            <a href="#parts" class="mobile-link text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/5 transition-colors">Parts</a>
+            <a href="#gallery" class="mobile-link text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/5 transition-colors">Gallery</a>
+            <a href="#contact" class="mobile-link text-white/80 hover:text-white text-lg font-medium py-3 border-b border-white/5 transition-colors">Contact</a>
+        </div>
+        <div class="px-6 pb-8">
+            <a href="https://wa.me/60194432950?text=Hi%20GT%20Planet%2C%20I%20would%20like%20to%20enquire%20about%20auto%20parts." target="_blank" rel="noopener"
+               class="flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-redDark text-white font-semibold px-6 py-3.5 rounded transition-colors w-full">
+                <span class="iconify" data-icon="mdi:whatsapp" data-width="20"></span>
+                WhatsApp Us Now
+            </a>
+        </div>
+    </div>
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-[55] hidden"></div>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+        <img src="C:\Users\Asus\Documents\GtPlanet\HeroPage.jpeg" alt="GT Planet Auto Parts Yard" class="absolute inset-0 w-full h-full object-cover">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-32 w-full">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="red-line"></div>
+                    <span class="text-brand-red text-xs font-bold tracking-[0.2em] uppercase">Since 2006 · Sungai Petani, Kedah</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6">
+                    Japanese Used Auto Parts
+                    <span class="text-brand-red"> & Components</span>
+                </h1>
+                <p class="text-zinc-300 text-base md:text-lg font-light leading-relaxed mb-10 max-w-2xl">
+                    GT Planet Auto Parts supplies quality used automotive spare parts and components, mainly imported from Japan. We serve individual car owners, workshops, dealers, and business clients across Malaysia.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://wa.me/60194432950?text=Hi%20GT%20Planet%2C%20I%20would%20like%20to%20enquire%20about%20auto%20parts." target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-redDark text-white font-semibold px-7 py-4 rounded transition-colors text-sm">
+                        <span class="iconify" data-icon="mdi:whatsapp" data-width="20"></span>
+                        WhatsApp Us Now
+                    </a>
+                    <a href="#parts" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium px-7 py-4 rounded border border-white/20 transition-all text-sm backdrop-blur-sm">
+                        View Our Parts
+                        <span class="iconify" data-icon="mdi:arrow-down" data-width="16"></span>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-white/70 hover:text-white font-medium px-4 py-4 transition-colors text-sm">
+                        <span class="iconify" data-icon="mdi:map-marker-outline" data-width="18"></span>
+                        Visit Our Location
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+            <span class="text-white/40 text-[10px] tracking-widest uppercase">Scroll</span>
+            <div class="w-px h-8 bg-gradient-to-b from-white/40 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- ==================== TRUST STRIP ==================== -->
+    <section class="bg-brand-black border-y border-white/10">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+                <div class="py-6 md:py-8 px-4 md:px-6 text-center scroll-reveal">
+                    <div class="text-brand-red font-bold text-2xl md:text-3xl mb-1">20+</div>
+                    <div class="text-zinc-400 text-xs md:text-sm font-medium">Years of Experience</div>
+                </div>
+                <div class="py-6 md:py-8 px-4 md:px-6 text-center scroll-reveal">
+                    <div class="text-brand-red font-bold text-2xl md:text-3xl mb-1">JP</div>
+                    <div class="text-zinc-400 text-xs md:text-sm font-medium">Japanese Imported Parts</div>
+                </div>
+                <div class="py-6 md:py-8 px-4 md:px-6 text-center scroll-reveal">
+                    <div class="text-brand-red font-bold text-2xl md:text-3xl mb-1">MY</div>
+                    <div class="text-zinc-400 text-xs md:text-sm font-medium">Nationwide Delivery</div>
+                </div>
+                <div class="py-6 md:py-8 px-4 md:px-6 text-center scroll-reveal">
+                    <div class="text-brand-red font-bold text-2xl md:text-3xl mb-1">OK</div>
+                    <div class="text-zinc-400 text-xs md:text-sm font-medium">Walk-in Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Image -->
+                <div class="scroll-reveal">
+                    <div class="relative">
+                        <img src="https://picsum.photos/seed/garage-exterior-sign/700/500.jpg" alt="GT Planet Auto Parts storefront" class="w-full h-[400px] md:h-[500px] object-cover rounded-lg">
+                        <div class="absolute -bottom-6 -right-6 bg-brand-red text-white p-6 rounded-lg shadow-xl hidden md:block">
+                            <div class="text-3xl font-bold">20+</div>
+                            <div class="text-sm font-medium text-white/80">Years in Business</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Text -->
+                <div class="scroll-reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="red-line"></div>
+                        <span class="text-brand-red text-xs font-bold tracking-[0.2em] uppercase">About Us</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6 leading-tight">
+                        Trusted Used Auto Parts Supplier in Sungai Petani
+                    </h2>
+                    <p class="text-zinc-600 leading-relaxed mb-5">
+                        GT Planet Auto Parts Sdn. Bhd. is a used automotive spare parts company based in Sungai Petani, Kedah. Established in 2006, the company has around 20 years of experience in supplying used spare parts and components, mainly imported from Japan.
+                    </p>
+                    <p class="text-zinc-600 leading-relaxed mb-5">
+                        We serve a wide range of customers, including individual car owners, workshops, used car dealers, auto parts dealers, and company clients. With nationwide delivery available across Malaysia, GT Planet helps customers source reliable used auto parts for repair, replacement, and business needs.
+                    </p>
+                    <p class="text-zinc-600 leading-relaxed mb-8">
+                        Our business focuses on practical service, real inventory, and direct communication, making it easier for customers to find the right parts quickly.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="inline-flex items-center gap-1.5 text-sm text-zinc-700 bg-zinc-100 px-4 py-2 rounded-full">
+                            <span class="iconify text-brand-red" data-icon="mdi:check-circle" data-width="16"></span>
+                            Individual Car Owners
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 text-sm text-zinc-700 bg-zinc-100 px-4 py-2 rounded-full">
+                            <span class="iconify text-brand-red" data-icon="mdi:check-circle" data-width="16"></span>
+                            Workshops
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 text-sm text-zinc-700 bg-zinc-100 px-4 py-2 rounded-full">
+                            <span class="iconify text-brand-red" data-icon="mdi:check-circle" data-width="16"></span>
+                            Used Car Dealers
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 text-sm text-zinc-700 bg-zinc-100 px-4 py-2 rounded-full">
+                            <span class="iconify text-brand-red" data-icon="mdi:check-circle" data-width="16"></span>
+                            Auto Parts Dealers
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 text-sm text-zinc-700 bg-zinc-100 px-4 py-2 rounded-full">
+                            <span class="iconify text-brand-red" data-icon="mdi:check-circle" data-width="16"></span>
+                            Company Clients
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services" class="py-20 md:py-28 bg-zinc-50">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-14 scroll-reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="red-line"></div>
+                    <span class="text-brand-red text-xs font-bold tracking-[0.2em] uppercase">What We Do</span>
+                    <div class="red-line"></div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Our Services</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-8 rounded-lg border border-zinc-200 transition-colors scroll-reveal">
+                    <span class="iconify service-icon text-brand-metal text-4xl mb-5 block transition-colors" data-icon="mdi:cog-transfer"></span>
+                    <h3 class="text-lg font-semibold mb-3 tracking-tight">Used Auto Parts Supply</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">We supply used automotive spare parts and components for various Japanese car models.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-8 rounded-lg border border-zinc-200 transition-colors scroll-reveal">
+                    <span class="iconify service-icon text-brand-metal text-4xl mb-5 block transition-colors" data-icon="mdi:truck-import"></span>
+                    <h3 class="text-lg font-semibold mb-3 tracking-tight">Japanese Imported Components</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Our parts and components are mainly imported from Japan, offering customers practical replacement options for repair and maintenance needs.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-8 rounded-lg border border-zinc-200 transition-colors scroll-reveal">
+                    <span class="iconify service-icon text-brand-metal text-4xl mb-5 block transition-colors" data-icon="mdi:engine"></span>
+                    <h3 class="text-lg font-semibold mb-3 tracking-tight">Engine & Gearbox Parts</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">We commonly handle major components such as engines, gearboxes, and related mechanical parts.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card bg-white p-8 rounded-lg border border-zinc-200 transition-colors scroll-reveal">
+                    <span class="iconify service-icon text-brand-metal text-4xl mb-5 block transition-colors" data-icon="mdi:car-wrench"></span>
+                    <h3 class="text-lg font-semibold mb-3 tracking-tight">Used Vehicle / Scrap Vehicle Handling</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">We deal with old cars, scrap vehicles, and accident vehicles as part of our auto parts and dismantling-related business.</p>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card bg-white p-8 rounded-lg border border-zinc-200 transition-colors scroll-reveal">
+                    <span class="iconify service-icon text-brand-metal text-4xl mb-5 block transition-colors" data-icon="mdi:recycle-variant"></span>
+                    <h3 class="text-lg font-semibold mb-3 tracking-tight">Scrap Metal Handling</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">We also handle scrap metal and related vehicle components.</p>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card bg-white p-8 rounded-lg border border-zinc-200 transition-colors scroll-reveal">
+                    <span class="iconify service-icon text-brand-metal text-4xl mb-5 block transition-colors" data-icon="mdi:truck-delivery-outline"></span>
+                    <h3 class="text-lg font-semibold mb-3 tracking-tight">Nationwide Delivery</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Although walk-in customers are welcome, we also support delivery across Malaysia for customers outside Kedah.</p>
+                </div>
+            </div>
+            <!-- CTA -->
+            <div class="text-center mt-12 scroll-reveal">
+                <a href="https://wa.me/60194432950?text=Hi%20GT%20Planet%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-redDark text-white font-semibold px-8 py-4 rounded transition-colors text-sm">
+                    <span class="iconify" data-icon="mdi:whatsapp" data-width="20"></span>
+                    Enquire About Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PARTS CATEGORIES ==================== -->
+    <section id="parts" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-14 scroll-reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="red-line"></div>
+                    <span class="text-brand-red text-xs font-bold tracking-[0.2em] uppercase">What We Have</span>
+                    <div class="red-line"></div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Parts Categories</h2>
+                <p class="text-zinc-500 max-w-2xl mx-auto">Common parts handled by GT Planet Auto Parts. Contact us to check availability for specific parts.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3 scroll-reveal">
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:engine" data-width="18"></span> Engine
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:car-shift-pattern" data-width="18"></span> Gearbox
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:car-door" data-width="18"></span> Door
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:car-hatchback" data-width="18"></span> Bonnet
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:car-bumper" data-width="18"></span> Bumper
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:car-light-high" data-width="18"></span> Headlamp
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:car-light-dimmed" data-width="18"></span> Tail Lamp
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:car-side-mirror" data-width="18"></span> Side Mirror
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:coolant-temperature" data-width="18"></span> Radiator
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:air-conditioner" data-width="18"></span> Compressor
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:speedometer" data-width="18"></span> Dashboard
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:car-seat" data-width="18"></span> Seat
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:car-scissor-door" data-width="18"></span> Half-Cut Parts
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:car-body" data-width="18"></span> Body Components
+                </span>
+                <span class="part-tag inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-5 py-3 rounded-lg cursor-pointer transition-all">
+                    <span class="iconify" data-icon="mdi:cog" data-width="18"></span> Mechanical Components
+                </span>
+            </div>
+            <div class="text-center mt-10 scroll-reveal">
+                <a href="https://wa.me/60194432950?text=Hi%20GT%20Planet%2C%20I%20am%20looking%20for%20a%20specific%20part." target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 bg-brand-black hover:bg-zinc-800 text-white font-medium px-8 py-4 rounded transition-colors text-sm">
+                    <span class="iconify" data-icon="mdi:whatsapp" data-width="18"></span>
+                    Can't Find Your Part? WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== VEHICLE BRANDS ==================== -->
+    <section class="py-20 md:py-28 bg-zinc-50">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-14 scroll-reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="red-line"></div>
+                    <span class="text-brand-red text-xs font-bold tracking-[0.2em] uppercase">Vehicle Brands</span>
+                    <div class="red-line"></div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Japanese Vehicle Parts We Commonly Handle</h2>
+                <p class="text-zinc-500 max-w-2xl mx-auto">We specialize in Japanese vehicle parts. Contact us to check availability for your specific model.</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 scroll-reveal">
+                <div class="brand-card bg-white border border-zinc-200 rounded-lg p-6 text-center transition-all cursor-pointer">
+                    <span class="iconify text-5xl text-zinc-400 mb-3 mx-auto block" data-icon="simple-icons:toyota"></span>
+                    <span class="text-sm font-semibold text-zinc-700">Toyota</span>
+                </div>
+                <div class="brand-card bg-white border border-zinc-200 rounded-lg p-6 text-center transition-all cursor-pointer">
+                    <span class="iconify text-5xl text-zinc-400 mb-3 mx-auto block" data-icon="simple-icons:honda"></span>
+                    <span class="text-sm font-semibold text-zinc-700">Honda</span>
+                </div>
+                <div class="brand-card bg-white border border-zinc-200 rounded-lg p-6 text-center transition-all cursor-pointer">
+                    <span class="iconify text-5xl text-zinc-400 mb-3 mx-auto block" data-icon="simple-icons:nissan"></span>
+                    <span class="text-sm font-semibold text-zinc-700">Nissan</span>
+                </div>
+                <div class="brand-card bg-white border border-zinc-200 rounded-lg p-6 text-center transition-all cursor-pointer">
+                    <span class="iconify text-5xl text-zinc-400 mb-3 mx-auto block" data-icon="simple-icons:mazda"></span>
+                    <span class="text-sm font-semibold text-zinc-700">Mazda</span>
+                </div>
+                <div class="brand-card bg-white border border-zinc-200 rounded-lg p-6 text-center transition-all cursor-pointer">
+                    <span class="iconify text-5xl text-zinc-400 mb-3 mx-auto block" data-icon="simple-icons:mitsubishi"></span>
+                    <span class="text-sm font-semibold text-zinc-700">Mitsubishi</span>
+                </div>
+                <div class="brand-card bg-white border border-zinc-200 rounded-lg p-6 text-center transition-all cursor-pointer">
+                    <span class="iconify text-5xl text-zinc-400 mb-3 mx-auto block" data-icon="simple-icons:suzuki"></span>
+                    <span class="text-sm font-semibold text-zinc-700">Suzuki</span>
+                </div>
+                <div class="brand-card bg-white border border-zinc-200 rounded-lg p-6 text-center transition-all cursor-pointer">
+                    <span class="iconify text-5xl text-zinc-400 mb-3 mx-auto block" data-icon="simple-icons:subaru"></span>
+                    <span class="text-sm font-semibold text-zinc-700">Subaru</span>
+                </div>
+                <div class="brand-card bg-white border border-zinc-200 rounded-lg p-6 text-center transition-all cursor-pointer">
+                    <span class="iconify text-5xl text-zinc-400 mb-3 mx-auto block" data-icon="simple-icons:isuzu"></span>
+                    <span class="text-sm font-semibold text-zinc-700">Isuzu</span>
+                </div>
+                <div class="brand-card bg-white border border-zinc-200 rounded-lg p-6 text-center transition-all cursor-pointer">
+                    <span class="iconify text-5xl text-zinc-400 mb-3 mx-auto block" data-icon="simple-icons:daihatsu"></span>
+                    <span class="text-sm font-semibold text-zinc-700">Daihatsu</span>
+                </div>
+                <div class="brand-card bg-white border border-zinc-200 rounded-lg p-6 text-center transition-all cursor-pointer">
+                    <span class="iconify text-5xl text-zinc-400 mb-3 mx-auto block" data-icon="simple-icons:lexus"></span>
+                    <span class="text-sm font-semibold text-zinc-700">Lexus</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALLERY ==================== -->
+    <section id="gallery" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-14 scroll-reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="red-line"></div>
+                    <span class="text-brand-red text-xs font-bold tracking-[0.2em] uppercase">Our Yard & Parts</span>
+                    <div class="red-line"></div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Gallery & Yard Showcase</h2>
+                <p class="text-zinc-500 max-w-2xl mx-auto">Real photos from our physical yard in Sungai Petani, Kedah. What you see is what we have.</p>
+            </div>
+
+            <!-- Large Feature Photo -->
+            <div class="scroll-reveal mb-4">
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/warehouse-panoramic/1400/600.jpg" alt="GT Planet Auto Parts yard panoramic view" class="w-full h-[300px] md:h-[500px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    <div class="absolute bottom-4 left-4 bg-black/70 text-white text-xs font-medium px-3 py-1.5 rounded backdrop-blur-sm">
+                        <span class="iconify inline-block align-middle mr-1" data-icon="mdi:image" data-width="14"></span>
+                        Yard Overview
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Medium Photos -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4 scroll-reveal">
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/car-engine-close/500/400.jpg" alt="Engine parts close-up" class="w-full h-[180px] md:h-[250px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    <div class="absolute bottom-3 left-3 bg-black/70 text-white text-[10px] font-medium px-2 py-1 rounded backdrop-blur-sm">Engine Parts</div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/auto-gearbox-unit/500/400.jpg" alt="Gearbox units" class="w-full h-[180px] md:h-[250px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    <div class="absolute bottom-3 left-3 bg-black/70 text-white text-[10px] font-medium px-2 py-1 rounded backdrop-blur-sm">Gearbox Units</div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/shop-signboard-front/500/400.jpg" alt="Company signboard" class="w-full h-[180px] md:h-[250px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    <div class="absolute bottom-3 left-3 bg-black/70 text-white text-[10px] font-medium px-2 py-1 rounded backdrop-blur-sm">Company Front</div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/parts-shelf-organized/500/400.jpg" alt="Organized parts shelf" class="w-full h-[180px] md:h-[250px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    <div class="absolute bottom-3 left-3 bg-black/70 text-white text-[10px] font-medium px-2 py-1 rounded backdrop-blur-sm">Parts Storage</div>
+                </div>
+            </div>
+
+            <!-- 8 Smaller Photos -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4 scroll-reveal">
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/headlamp-parts-row/400/300.jpg" alt="Headlamp parts" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/car-bumper-stack/400/300.jpg" alt="Bumper collection" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/car-door-storage/400/300.jpg" alt="Door storage" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/vehicle-dismantling-area/400/300.jpg" alt="Dismantling area" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/dashboard-parts-pile/400/300.jpg" alt="Dashboard parts" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/radiator-cooling-parts/400/300.jpg" alt="Radiator parts" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/worker-loading-parts/400/300.jpg" alt="Staff at work" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/scrap-vehicles-line/400/300.jpg" alt="Scrap vehicles" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+            </div>
+
+            <!-- 4 More Small Photos -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 scroll-reveal">
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/seat-interior-parts/400/300.jpg" alt="Interior seat parts" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/halfcut-vehicle-frame/400/300.jpg" alt="Half-cut parts" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/compressor-ac-parts/400/300.jpg" alt="Compressor parts" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg cursor-pointer relative group" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/mirror-side-lights/400/300.jpg" alt="Side mirrors and lights" class="w-full h-[140px] md:h-[200px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox fixed inset-0 z-[70] bg-black/95 flex items-center justify-center p-4" onclick="closeLightbox(event)">
+        <button onclick="closeLightbox(event)" class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-10" aria-label="Close lightbox">
+            <span class="iconify" data-icon="mdi:close" data-width="32"></span>
+        </button>
+        <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded">
+    </div>
+
+    <!-- ==================== HOW TO ENQUIRE ==================== -->
+    <section class="py-20 md:py-28 bg-brand-black">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-14 scroll-reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="red-line"></div>
+                    <span class="text-brand-red text-xs font-bold tracking-[0.2em] uppercase">Simple Process</span>
+                    <div class="red-line"></div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">How to Enquire for Parts</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Getting the right part is easy. Just follow these 4 simple steps.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="step-card scroll-reveal">
+                    <div class="step-num w-12 h-12 rounded-full border-2 border-zinc-700 flex items-center justify-center text-zinc-400 font-bold text-lg mb-5 transition-all">1</div>
+                    <h3 class="text-white font-semibold text-lg mb-2">Send Your Car Details</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Send us your car model, year, and the part you are looking for.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-card scroll-reveal">
+                    <div class="step-num w-12 h-12 rounded-full border-2 border-zinc-700 flex items-center justify-center text-zinc-400 font-bold text-lg mb-5 transition-all">2</div>
+                    <h3 class="text-white font-semibold text-lg mb-2">Send Photos if Available</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">A clear photo of the part or vehicle helps us check faster.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-card scroll-reveal">
+                    <div class="step-num w-12 h-12 rounded-full border-2 border-zinc-700 flex items-center justify-center text-zinc-400 font-bold text-lg mb-5 transition-all">3</div>
+                    <h3 class="text-white font-semibold text-lg mb-2">Get a Reply via WhatsApp</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Our team will respond and assist based on availability.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="step-card scroll-reveal">
+                    <div class="step-num w-12 h-12 rounded-full border-2 border-zinc-700 flex items-center justify-center text-zinc-400 font-bold text-lg mb-5 transition-all">4</div>
+                    <h3 class="text-white font-semibold text-lg mb-2">Walk In or Arrange Delivery</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Walk in to our location, or arrange delivery across Malaysia.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12 scroll-reveal">
+                <a href="https://wa.me/60194432950?text=Hi%20GT%20Planet%2C%20I%20would%20like%20to%20enquire%20about%20a%20part.%0A%0ACar%20Model%3A%20%0AYear%3A%20%0APart%20Needed%3A%20" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-redDark text-white font-semibold px-8 py-4 rounded transition-colors text-sm">
+                    <span class="iconify" data-icon="mdi:whatsapp" data-width="20"></span>
+                    Start Enquiring Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-14 scroll-reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="red-line"></div>
+                    <span class="text-brand-red text-xs font-bold tracking-[0.2em] uppercase">Get In Touch</span>
+                    <div class="red-line"></div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Contact Us</h2>
+                <p class="text-zinc-500 max-w-2xl mx-auto">Reach out to us via WhatsApp for the fastest response. Walk-in visitors are always welcome.</p>
+            </div>
+            <div class="grid lg:grid-cols-5 gap-8 lg:gap-12">
+                <!-- Contact Info -->
+                <div class="lg:col-span-2 space-y-6 scroll-reveal">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/60194432950" target="_blank" rel="noopener" class="flex items-start gap-4 p-5 bg-zinc-50 rounded-lg border border-zinc-200 hover:border-brand-red transition-colors group">
+                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-white" data-icon="mdi:whatsapp" data-width="24"></span>
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1">WhatsApp</div>
+                            <div class="text-zinc-900 font-semibold group-hover:text-brand-red transition-colors">+60 19-443 2950</div>
+                            <div class="text-xs text-zinc-400 mt-1">Click to chat directly</div>
+                        </div>
+                    </a>
+                    <!-- Email -->
+                    <a href="mailto:gtplanet72@gmail.com" class="flex items-start gap-4 p-5 bg-zinc-50 rounded-lg border border-zinc-200 hover:border-brand-red transition-colors group">
+                        <div class="w-12 h-12 bg-brand-red rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-white" data-icon="mdi:email-outline" data-width="24"></span>
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1">Email</div>
+                            <div class="text-zinc-900 font-semibold group-hover:text-brand-red transition-colors">gtplanet72@gmail.com</div>
+                        </div>
+                    </a>
+                    <!-- Address -->
+                    <div class="flex items-start gap-4 p-5 bg-zinc-50 rounded-lg border border-zinc-200">
+                        <div class="w-12 h-12 bg-brand-black rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-white" data-icon="mdi:map-marker" data-width="24"></span>
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1">Address</div>
+                            <div class="text-zinc-900 font-semibold text-sm leading-relaxed">Lot 991, 225, Mukim Sungai Pasir,<br>08000 Sungai Petani, Kedah, Malaysia</div>
+                        </div>
+                    </div>
+                    <!-- Business Hours -->
+                    <div class="flex items-start gap-4 p-5 bg-zinc-50 rounded-lg border border-zinc-200">
+                        <div class="w-12 h-12 bg-zinc-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-white" data-icon="mdi:clock-outline" data-width="24"></span>
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1">Business Hours</div>
+                            <div class="text-zinc-900 font-semibold">Monday – Saturday</div>
+                            <div class="text-zinc-500 text-sm">9:00 AM – 5:30 PM</div>
+                            <div class="text-xs text-zinc-400 mt-1">Sunday & Public Holiday: Closed</div>
+                        </div>
+                    </div>
+                    <!-- Walk-in Info -->
+                    <div class="flex items-center gap-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                        <span class="iconify text-green-600" data-icon="mdi:check-decagram" data-width="20"></span>
+                        <span class="text-green-800 text-sm font-medium">Walk-in available · No appointment required</span>
+                    </div>
+                    <!-- Map Buttons -->
+                    <div class="flex gap-3">
+                        <a href="https://www.google.com/maps/search/GT+Planet+Auto+Parts+Sungai+Petani+Kedah" target="_blank" rel="noopener"
+                           class="flex-1 flex items-center justify-center gap-2 bg-white border border-zinc-300 hover:border-zinc-400 text-zinc-700 font-medium py-3 rounded-lg transition-colors text-sm">
+                            <span class="iconify" data-icon="mdi:google" data-width="18"></span>
+                            Google Maps
+                        </a>
+                        <a href="https://waze.com/ul?q=GT%20Planet%20Auto%20Parts%20Sungai%20Petani%20Kedah" target="_blank" rel="noopener"
+                           class="flex-1 flex items-center justify-center gap-2 bg-white border border-zinc-300 hover:border-zinc-400 text-zinc-700 font-medium py-3 rounded-lg transition-colors text-sm">
+                            <span class="iconify" data-icon="mdi:navigation-variant" data-width="18"></span>
+                            Waze
+                        </a>
+                    </div>
+                </div>
+                <!-- Map -->
+                <div class="lg:col-span-3 scroll-reveal">
+                    <div class="w-full h-full min-h-[400px] lg:min-h-[600px] rounded-lg overflow-hidden border border-zinc-200 bg-zinc-100">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15937.988678!2d100.4792!3d5.6398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304b5a3f0e3b4b2d%3A0x1234567890abcdef!2sSungai%20Petani%2C%20Kedah!5e0!3m2!1sen!2smy!4v1700000000000!5m2!1sen!2smy"
+                            width="100%" height="100%" style="border:0; min-height:400px;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" title="GT Planet Auto Parts location on Google Maps">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-brand-black border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 bg-brand-red rounded flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">GT</span>
+                        </div>
+                        <div class="leading-tight">
+                            <span class="text-white font-bold text-sm tracking-wide block">GT PLANET AUTO PARTS</span>
+                            <span class="text-zinc-500 text-[10px] tracking-widest uppercase font-medium">Sdn. Bhd. · 环宇汽车机件有限公司</span>
+                        </div>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed max-w-md mb-6">
+                        Reliable used auto parts supplier since 2006. Specializing in Japanese imported spare parts and components. Based in Sungai Petani, Kedah with nationwide delivery across Malaysia.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 bg-white/5 hover:bg-brand-red border border-white/10 hover:border-brand-red rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all" aria-label="Facebook" title="Facebook (coming soon)">
+                            <span class="iconify" data-icon="mdi:facebook" data-width="20"></span>
+                        </a>
+                        <a href="https://wa.me/60194432950" target="_blank" rel="noopener" class="w-10 h-10 bg-white/5 hover:bg-green-600 border border-white/10 hover:border-green-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all" aria-label="WhatsApp">
+                            <span class="iconify" data-icon="mdi:whatsapp" data-width="20"></span>
+                        </a>
+                        <a href="mailto:gtplanet72@gmail.com" class="w-10 h-10 bg-white/5 hover:bg-brand-red border border-white/10 hover:border-brand-red rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all" aria-label="Email">
+                            <span class="iconify" data-icon="mdi:email-outline" data-width="20"></span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-5 tracking-wide">QUICK LINKS</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-zinc-400 hover:text-white text-sm transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-zinc-400 hover:text-white text-sm transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-zinc-400 hover:text-white text-sm transition-colors">Services</a></li>
+                        <li><a href="#parts" class="text-zinc-400 hover:text-white text-sm transition-colors">Parts Categories</a></li>
+                        <li><a href="#gallery" class="text-zinc-400 hover:text-white text-sm transition-colors">Gallery</a></li>
+                        <li><a href="#contact" class="text-zinc-400 hover:text-white text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Summary -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-5 tracking-wide">CONTACT</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <span class="iconify text-brand-red mt-0.5 flex-shrink-0" data-icon="mdi:whatsapp" data-width="16"></span>
+                            <a href="https://wa.me/60194432950" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white text-sm transition-colors">+60 19-443 2950</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="iconify text-brand-red mt-0.5 flex-shrink-0" data-icon="mdi:email-outline" data-width="16"></span>
+                            <a href="mailto:gtplanet72@gmail.com" class="text-zinc-400 hover:text-white text-sm transition-colors">gtplanet72@gmail.com</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="iconify text-brand-red mt-0.5 flex-shrink-0" data-icon="mdi:map-marker" data-width="16"></span>
+                            <span class="text-zinc-400 text-sm">Lot 991, 225, Mukim Sungai Pasir, 08000 Sungai Petani, Kedah</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="iconify text-brand-red mt-0.5 flex-shrink-0" data-icon="mdi:clock-outline" data-width="16"></span>
+                            <span class="text-zinc-400 text-sm">Mon–Sat: 9:00 AM – 5:30 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-zinc-500 text-xs">&copy; 2024 GT Planet Auto Parts Sdn. Bhd. All rights reserved.</p>
+                <p class="text-zinc-600 text-xs">Registration: GT PLANET AUTO PARTS SDN. BHD.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== STICKY WHATSAPP BUTTON ==================== -->
+    <a href="https://wa.me/60194432950?text=Hi%20GT%20Planet%2C%20I%20would%20like%20to%20enquire%20about%20auto%20parts." target="_blank" rel="noopener"
+       class="whatsapp-float fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-xl transition-colors"
+       aria-label="Chat on WhatsApp" title="Chat with us on WhatsApp">
+        <span class="iconify text-white" data-icon="mdi:whatsapp" data-width="28"></span>
+    </a>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ---- Navbar scroll effect ----
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // ---- Mobile menu ----
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileClose = document.getElementById('mobileClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        mobileToggle.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+        // ---- Scroll reveal ----
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add stagger delay for siblings
+                    const siblings = entry.target.parentElement.querySelectorAll('.scroll-reveal');
+                    let delay = 0;
+                    siblings.forEach((sib, i) => {
+                        if (sib === entry.target) delay = i * 80;
+                    });
+                    setTimeout(() => {
+                        entry.target.classList.add('revealed');
+                    }, Math.min(delay, 400));
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ---- Lightbox ----
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+
+        function openLightbox(el) {
+            const img = el.querySelector('img');
+            if (img) {
+                // Use a higher resolution version
+                const src = img.src.replace(/\/\d+\/\d+\.jpg/, '/1200/800.jpg');
+                lightboxImg.src = src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox(e) {
+            if (e.target === lightbox || e.currentTarget.tagName === 'BUTTON') {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ---- Part tag click -> WhatsApp ----
+        document.querySelectorAll('.part-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                const partName = tag.textContent.trim();
+                const msg = encodeURIComponent(`Hi GT Planet, I am looking for: ${partName}.\n\nCar Model: \nYear: `);
+                window.open(`https://wa.me/60194432950?text=${msg}`, '_blank');
+            });
+        });
+
+        // ---- Brand card click -> WhatsApp ----
+        document.querySelectorAll('.brand-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const brand = card.querySelector('span:last-child').textContent.trim();
+                const msg = encodeURIComponent(`Hi GT Planet, I am looking for ${brand} parts.\n\nCar Model: \nYear: \nPart Needed: `);
+                window.open(`https://wa.me/60194432950?text=${msg}`, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
