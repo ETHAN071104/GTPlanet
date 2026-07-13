@@ -83,11 +83,15 @@ const steps = [
 
 const photoNotes = [
   "Put uploaded photos in `public/` unless we later switch everything to a dedicated `public/photos/` folder.",
-  "If the photo has a title, use that title in the file name, for example `about-main.png` or `yard-overview.jpg`.",
-  "If it has no title, use a simple sequence like `1.jpg`, `2.jpg`, `3.jpg`.",
+  "If the photo has a title, use that title in the file name, for example `about-main.png` or `engine-parts.png`.",
+  "If it has no title, use a simple sequence like `1.png`, `2.png`, `3.png`.",
 ];
 
 const heroImage = "/HeroPage.png";
+const brandLogoImage = "/gt-planet-logo.png";
+const exactAddress = "Lot 991, 225, Mukim Sungai Pasir, 08000 Sungai Petani, Kedah, Malaysia";
+const mapDestination = `GT PLANET AUTO PARTS SDN BHD, ${exactAddress}`;
+const encodedMapDestination = encodeURIComponent(mapDestination);
 
 const aboutImage = {
   src: "/about-main.png",
@@ -97,21 +101,21 @@ const aboutImage = {
 const galleryPhotos = [
   { src: "/HeroPage.png", label: "Yard Overview", size: "large" },
   { src: "/engine-parts.png", label: "Engine Parts", size: "medium" },
-  { src: "/gearbox-units.jpg", label: "Gearbox Units", size: "medium" },
+  { src: "/gearbox-units.png", label: "Gearbox Units", size: "medium" },
   { src: "/company-front.jpg", label: "Company Front", size: "medium" },
   { src: "/parts-storage.jpg", label: "Parts Storage", size: "medium" },
   { src: "/headlamp-parts.jpg", label: "Headlamp Parts", size: "small" },
-  { src: "/1.jpg", label: "1", size: "small" },
-  { src: "/2.jpg", label: "2", size: "small" },
-  { src: "/3.jpg", label: "3", size: "small" },
-  { src: "/4.jpg", label: "4", size: "small" },
-  { src: "/5.jpg", label: "5", size: "small" },
-  { src: "/6.jpg", label: "6", size: "small" },
-  { src: "/7.jpg", label: "7", size: "small" },
-  { src: "/8.jpg", label: "8", size: "small" },
-  { src: "/9.jpg", label: "9", size: "small" },
-  { src: "/10.jpg", label: "10", size: "small" },
-  { src: "/11.jpg", label: "11", size: "small" },
+  { src: "/1.png", label: "1", size: "small" },
+  { src: "/2.png", label: "2", size: "small" },
+  { src: "/3.png", label: "3", size: "small" },
+  { src: "/4.png", label: "4", size: "small" },
+  { src: "/5.png", label: "5", size: "small" },
+  { src: "/6.png", label: "6", size: "small" },
+  { src: "/7.png", label: "7", size: "small" },
+  { src: "/8.png", label: "8", size: "small" },
+  { src: "/9.png", label: "9", size: "small" },
+  { src: "/10.png", label: "10", size: "small" },
+  { src: "/11.png", label: "11", size: "small" },
 ];
 
 function whatsappUrl(message = defaultMessage) {
@@ -124,19 +128,12 @@ function Icon({ icon, className = "", width = 20 }) {
 
 function Logo({ compact = false }) {
   return (
-    <div className="flex items-center gap-3 rounded border border-white/10 bg-black/35 px-2.5 py-2 backdrop-blur-sm">
-      <div className="flex h-10 w-10 items-center justify-center rounded border border-brand-red bg-brand-red shadow-[0_0_0_1px_rgba(220,38,38,0.35)]">
-        <span className="text-sm font-black tracking-tight text-white">GT</span>
-      </div>
-      <div className="leading-tight">
-        <span className="block text-sm font-black tracking-wide drop-shadow">
-          <span className="text-brand-red">GT</span>{" "}
-          <span className="text-zinc-100">PLANET</span>
-        </span>
-        <span className="block text-[10px] font-semibold uppercase tracking-widest text-zinc-300">
-          {compact ? "Auto Parts" : "Auto Parts Sdn. Bhd."}
-        </span>
-      </div>
+    <div className="flex items-center">
+      <img
+        src={brandLogoImage}
+        alt={compact ? "GT Planet Auto Parts" : "GT Planet Auto Parts Sdn. Bhd."}
+        className={compact ? "h-14 w-auto object-contain" : "h-16 w-auto object-contain"}
+      />
     </div>
   );
 }
@@ -534,7 +531,7 @@ export default function Home() {
                 <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-brand-black text-white"><Icon icon="mdi:map-marker" width={24} /></span>
                 <span>
                   <span className="mb-1 block text-xs font-bold uppercase tracking-wider text-zinc-400">Address</span>
-                  <span className="block text-sm font-semibold leading-relaxed text-zinc-900">Lot 991, 225, Mukim Sungai Pasir, 08000 Sungai Petani, Kedah, Malaysia</span>
+                  <span className="block text-sm font-semibold leading-relaxed text-zinc-900">{exactAddress}</span>
                 </span>
               </div>
               <div className="flex items-start gap-4 rounded-lg border border-zinc-200 bg-zinc-50 p-5">
@@ -551,11 +548,11 @@ export default function Home() {
                 <span className="text-sm font-medium text-green-800">Walk-in available - no appointment required</span>
               </div>
               <div className="flex gap-3">
-                <a href="https://www.google.com/maps/search/GT+Planet+Auto+Parts+Sungai+Petani+Kedah" target="_blank" rel="noopener" className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-white py-3 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400">
+                <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodedMapDestination}`} target="_blank" rel="noopener" className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-white py-3 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400">
                   <Icon icon="mdi:google" width={18} />
                   Google Maps
                 </a>
-                <a href="https://waze.com/ul?q=GT%20Planet%20Auto%20Parts%20Sungai%20Petani%20Kedah" target="_blank" rel="noopener" className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-white py-3 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400">
+                <a href={`https://waze.com/ul?q=${encodedMapDestination}&navigate=yes`} target="_blank" rel="noopener" className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-white py-3 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400">
                   <Icon icon="mdi:navigation-variant" width={18} />
                   Waze
                 </a>
@@ -564,7 +561,7 @@ export default function Home() {
             <div className="scroll-reveal lg:col-span-3">
               <div className="h-full min-h-[400px] overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 lg:min-h-[600px]">
                 <iframe
-                  src="https://www.google.com/maps?q=Sungai%20Petani%20Kedah%20Malaysia&output=embed"
+                  src={`https://www.google.com/maps?q=${encodedMapDestination}&output=embed`}
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: 400 }}
